@@ -3,7 +3,7 @@ import axios from 'axios';
 
 @Injectable({ providedIn: 'root' })
 export class EmotionService {
-  private apiUrl = 'http://localhost:3000'; // backend URL
+  private apiUrl = 'https://virtual-shelf.far1ca.hackclub.app'; // backend URL
 
   async fetchAccuracy(): Promise<any> {
     const res = await axios.get(this.apiUrl + '/accuracy');
