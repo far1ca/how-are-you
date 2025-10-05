@@ -189,3 +189,45 @@
   font-weight: 500;
   font-size: 0.8em;
 }
+
+.btn-feedback {
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  font-size: 0.5em;
+  margin-top: 1em;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+}
+
+.accuracy-container {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  text-align: center;
+  color: white;
+  display: flex;
+  animation: fadeIn 5s ease-in forwards;
+}
+
+.accuracy-box {
+  width: 20em;
+  height: 20px;
+  background-color: rgb(218, 216, 216);
+  border-radius: 10px;
+}
+
+.accuracy-bar {
+  height: 100%;
+  background-color: green;
+  border-radius: 10px;
+}

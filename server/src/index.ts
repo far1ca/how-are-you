@@ -31,6 +31,40 @@ app.post("/analyze", async (req: Request, res: Response) => {
   }
 });
 
+let trueCount = 0;
+let falseCount = 0;
+
+app.post("/feedback", (req: Request, res: Response) => {
+  const { correct } = req.body;
+
+  if (typeof correct !== "boolean") {
+    return res.status(400).json({ error: "correct must be true or false" });
+  }
+
+  if (correct) {
+    trueCount++;
+  } else {
+    falseCount++;
+  }
+
+  res.json({
+    message: "Feedback received",
+    accuracy:
+      trueCount + falseCount > 0
+        ? Math.round((trueCount / (trueCount + falseCount)) * 100)
+        : 100,
+  });
+});
+
+app.get("/accuracy", (req: Request, res: Response) => {
+  res.json({
+    accuracy:
+      trueCount + falseCount > 0
+        ? Math.round((trueCount / (trueCount + falseCount)) * 100)
+        : 100,
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`Server running at http://localhost:${PORT}`)

@@ -39,5 +39,30 @@
     }}</span>
     <div style="margin-top: 0.3em; font-size: 2em">{{ emoji }}</div>
     <div class="confidence">{{ confidence }}% confident</div>
+    <div class="feedback-container">
+      <button
+        class="btn-feedback"
+        style="background-color: green; margin-right: 1em"
+        (click)="sendFeedback(true)"
+      >
+        ✅ true
+      </button>
+      <button
+        class="btn-feedback"
+        style="background-color: red"
+        (click)="sendFeedback(false)"
+      >
+        ❌ false
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="accuracy-container">
+  <div style="display: flex; justify-content: center; flex-direction: column">
+    <p>{{ accuracyRate }}% Accuracy</p>
+    <div class="accuracy-box">
+      <div class="accuracy-bar" [ngStyle]="{ width: accuracyRate + '%' }"></div>
+    </div>
   </div>
 </div>

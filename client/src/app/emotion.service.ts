@@ -3,10 +3,20 @@ import axios from 'axios';
 
 @Injectable({ providedIn: 'root' })
 export class EmotionService {
-  private apiUrl = 'http://localhost:3000/analyze'; // backend URL
+  private apiUrl = 'http://localhost:3000'; // backend URL
+
+  async fetchAccuracy(): Promise<any> {
+    const res = await axios.get(this.apiUrl + '/accuracy');
+    return res.data;
+  }
+
+  async sendFeedback(correct: boolean): Promise<any> {
+    const res = await axios.post(this.apiUrl + '/feedback', { correct });
+    return res.data;
+  }
 
   async analyze(text: string): Promise<any> {
-    const res = await axios.post(this.apiUrl, { text });
+    const res = await axios.post(this.apiUrl + '/analyze', { text });
     return res.data;
   }
 }

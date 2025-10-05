@@ -16,21 +16,30 @@ export class AppComponent implements OnInit {
   emoji = '😄';
   emotionColor: string = '#f7c707';
   isAnalyzing: boolean = false;
+  accuracyRate: number = 100;
   result: any;
 
   constructor(private emotionService: EmotionService) {}
 
   ngOnInit(): void {
+    this.emotionService.fetchAccuracy().then((data) => {
+      this.accuracyRate = data.accuracy;
+    });
+
     setTimeout(() => {
       this.inputDisabled = false;
     }, 5000);
+  }
+
+  sendFeedback(feedback: boolean): void {
+    this.emotionService.sendFeedback(feedback);
+    window.location.reload();
   }
 
   async analyze() {
     this.isAnalyzing = true;
     this.result = await this.emotionService.analyze(this.text);
     if (this.result) {
-      console.log(this.result);
       this.isAnalyzing = false;
       this.confidence = Math.round(this.result[0][0].score * 100);
       switch (this.result[0][0].label) {
