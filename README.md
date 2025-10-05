@@ -8,4 +8,6 @@ The inspiration behind this was to test the waters with using AI and web develop
 
 Check out Hugging Face and the amazing selection of models that you can use just like I did to build this app!
 
+Try it out here: https://how-are-you-one.vercel.app/
+
 [![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
