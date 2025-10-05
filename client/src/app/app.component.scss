@@ -33,7 +33,7 @@
     width: 0;
   }
   to {
-    width: 27%;
+    width: 6.7em;
   }
 }
 @keyframes blinkingCursor {
@@ -51,15 +51,13 @@
   font-size: 2.5em;
   font-weight: 600;
   color: white;
-  width: max-content;
   display: flex;
   justify-self: center;
   flex-direction: column;
   div {
     overflow: hidden;
     p {
-      width: max-content;
-      white-space: nowrap;
+      text-align: center;
       margin: 0;
       line-height: 117%;
     }
@@ -230,4 +228,34 @@
   height: 100%;
   background-color: green;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1500px) {
+  .subtitle {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .subtitle {
+    font-size: 1.2em;
+  }
+  .btn-submit {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title p {
+    font-size: 3em;
+  }
+
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 5em;
+    }
+  }
 }
