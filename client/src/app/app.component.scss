@@ -174,3 +174,18 @@
     background-position: 0% 50%, 50% 50%, 100% 100%;
   }
 }
+
+/* Result styling */
+
+.result-text {
+  text-align: center;
+  font-weight: 800;
+  font-size: 3em;
+  color: white;
+  margin-top: 2em;
+}
+
+.confidence {
+  font-weight: 500;
+  font-size: 0.8em;
+}

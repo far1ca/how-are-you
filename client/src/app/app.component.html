@@ -32,5 +32,12 @@
   >
     <div class="loader"></div>
   </div>
-  <div *ngIf="showResult">i think you're {{ emotion }}</div>
+  <div *ngIf="showResult" class="result-text">
+    i think you're
+    <span style="font-style: italic" [ngStyle]="{ color: emotionColor }">{{
+      emotion
+    }}</span>
+    <div style="margin-top: 0.3em; font-size: 2em">{{ emoji }}</div>
+    <div class="confidence">{{ confidence }}% confident</div>
+  </div>
 </div>
