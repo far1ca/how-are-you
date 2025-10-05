@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmotionService } from './emotion.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  title = 'client';
+  text: string = '';
+  result: any;
+
+  constructor(private emotionService: EmotionService) {}
+
+  async analyze() {
+    this.result = await this.emotionService.analyze(this.text);
+  }
 }
