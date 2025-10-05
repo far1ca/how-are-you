@@ -100,13 +100,12 @@
 
 .text-input {
   margin-top: 3em;
-  width: 100%;
+  width: 98%;
   height: 10em;
   border-radius: 15px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  text-indent: 10px;
-  vertical-align: top;
+  padding-left: 15px;
   padding-top: 15px;
   color: grey;
 
@@ -130,11 +129,11 @@
   padding: 0.6em;
   border: none;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   background: white;
 
   &:disabled {
-    opacity: 0.8;
+    opacity: 0.5;
   }
 
   .button-text {
@@ -147,5 +146,31 @@
     cursor: pointer;
     transform: translateY(-5px);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+}
+
+/* Loading animation */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 10em;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #ffffff 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
   }
 }

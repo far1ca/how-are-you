@@ -2,7 +2,7 @@
   <div class="title">
     <p class="cursor typewriter-animation">how are you?</p>
   </div>
-  <div class="subtitle">
+  <div class="subtitle" *ngIf="!isAnalyzing && !showResult">
     <div>
       <p class="slide-up">
         not sure how to answer? just write down your thoughts in the textbox
@@ -26,4 +26,11 @@
       </button>
     </div>
   </div>
+  <div
+    *ngIf="isAnalyzing && !showResult"
+    style="display: flex; justify-content: center"
+  >
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="showResult">i think you're {{ emotion }}</div>
 </div>
