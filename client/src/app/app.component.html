@@ -9,10 +9,21 @@
         below!
       </p>
     </div>
-    <textarea
-      [(ngModel)]="text"
-      placeholder="how are you?"
-      class="text-input"
-    ></textarea>
+    <div class="input-box">
+      <textarea
+        [(ngModel)]="text"
+        placeholder="write anything..."
+        class="text-input"
+        [disabled]="inputDisabled"
+      ></textarea>
+      <button
+        type="submit"
+        (click)="analyze()"
+        class="btn-submit"
+        [disabled]="!text || inputDisabled"
+      >
+        summarize
+      </button>
+    </div>
   </div>
 </div>

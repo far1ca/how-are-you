@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmotionService } from './emotion.service';
 
 @Component({
@@ -7,11 +7,18 @@ import { EmotionService } from './emotion.service';
   styleUrls: ['./app.component.scss'],
   standalone: false,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   text: string = '';
+  inputDisabled: boolean = true;
   result: any;
 
   constructor(private emotionService: EmotionService) {}
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.inputDisabled = false;
+    }, 5000);
+  }
 
   async analyze() {
     this.result = await this.emotionService.analyze(this.text);

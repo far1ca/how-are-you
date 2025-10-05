@@ -1,8 +1,11 @@
+* {
+  font-family: "Alan Sans", sans-serif;
+}
+
 .title {
   margin-top: 10em;
 
   p {
-    font-family: "Alan Sans", sans-serif;
     color: white;
     font-size: 5em;
     font-weight: 800;
@@ -47,7 +50,6 @@
 .subtitle {
   font-size: 2.5em;
   font-weight: 600;
-  font-family: "Alan Sans", sans-serif;
   color: white;
   width: max-content;
   display: flex;
@@ -89,8 +91,14 @@
   }
 }
 
-.text-input {
+.input-box {
   animation: fadeIn 5s ease-in forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-input {
   margin-top: 3em;
   width: 100%;
   height: 10em;
@@ -100,4 +108,47 @@
   text-indent: 10px;
   vertical-align: top;
   padding-top: 15px;
+  color: grey;
+
+  &:disabled {
+    background: white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Button styling */
+
+.btn-submit {
+  width: max-content;
+  margin-top: 2.5em;
+  font-size: 0.8em;
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 0.6em;
+  border: none;
+  position: relative;
+  background: linear-gradient(to right, #f7797d, #fbd786, rgb(145, 248, 186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
 }
