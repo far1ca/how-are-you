@@ -130,25 +130,22 @@
   padding: 0.6em;
   border: none;
   position: relative;
-  background: linear-gradient(to right, #f7797d, #fbd786, rgb(145, 248, 186));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
+  background: white;
 
-  &::after {
-    content: "";
-    position: absolute;
-    border-radius: 30px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index: -1;
+  &:disabled {
+    opacity: 0.8;
   }
 
-  &:hover {
+  .button-text {
+    background: linear-gradient(to right, #f7797d, #fbd786, rgb(145, 248, 186));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:enabled:hover {
     cursor: pointer;
     transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
 }
