@@ -9,8 +9,26 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Server is running");
+const HF_API_URL =
+  "https://api-inference.huggingface.co/models/j-hartmann/emotion-english-distilroberta-base";
+
+app.post("/analyze", async (req: Request, res: Response) => {
+  const { text } = req.body;
+  if (!text) {
+    return res.status(400).json({ error: "Text is required" });
+  }
+
+  try {
+    const response = await axios.post(
+      HF_API_URL,
+      { inputs: text },
+      { headers: { Authorization: `Bearer ${process.env.HF_API_KEY}` } }
+    );
+    res.json(response.data);
+  } catch (err: any) {
+    console.error(err.response?.data || err.message);
+    res.status(500).json({ error: "Failed to analyze text" });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
