@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
   sendFeedback(feedback: boolean): void {
     this.emotionService.sendFeedback(feedback);
-    // window.location.reload();
+    window.location.reload();
   }
 
   async analyze() {
