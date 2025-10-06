@@ -12,9 +12,9 @@ export class AppComponent implements OnInit {
   confidence: number = 100;
   inputDisabled: boolean = true;
   showResult: boolean = false;
-  emotion: string = 'happy';
-  emoji = '😄';
-  emotionColor: string = '#f7c707';
+  emotion: string = 'neutral';
+  emoji = '😐';
+  emotionColor: string = '#707070';
   isAnalyzing: boolean = false;
   accuracyRate: number = 100;
   result: any;
